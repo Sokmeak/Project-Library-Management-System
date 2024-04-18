@@ -6,6 +6,8 @@ package frames;
 
 
 
+import java.sql.ResultSet;
+
 import javax.swing.JOptionPane;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
@@ -21,6 +23,15 @@ public class SignupPage extends javax.swing.JFrame {
      */
     public SignupPage() {
         initComponents();
+    }
+    
+    public void clearTextField(){
+          txt_username.setText("");
+          txt_password.setText("");
+          txt_email.setText("");
+          txt_phone.setText("");
+           
+       
     }
     // method to insert user sign up into MySQL
     public void insertSignUpDetails(){
@@ -54,6 +65,57 @@ public class SignupPage extends javax.swing.JFrame {
         }
         
     }
+    
+    public boolean validateSignUp(){
+        String name = txt_username.getText();
+        String password = txt_password.getText();
+        String email = txt_email.getText();
+        String contact = txt_phone.getText();
+        
+        if(name.equals("")){
+            JOptionPane.showConfirmDialog(this, "Please enter username");
+            return false;
+         }
+         if(password.equals("")){
+            JOptionPane.showConfirmDialog(this, "Please enter password");
+            return false;
+         }
+        
+          if(email.equals("")|| !email.matches("^.+@.+\\..+$")){
+            JOptionPane.showConfirmDialog(this, "Please enter email");
+            return false;
+         }
+        
+           if(contact.equals("")){
+            JOptionPane.showConfirmDialog(this, "Please enter phone number");
+            return false;
+         }
+        
+        
+        return true;
+    }
+    
+    
+    public boolean checkDuplicateUser(){
+         String name = txt_username.getText();
+         boolean isExist  = false;
+         
+         try {
+            Connection con = DBConnection.getConnection();
+            PreparedStatement pst = con.prepareStatement("select * from users where name = ?");
+            pst.setString(1,name);
+             ResultSet rs = pst.executeQuery();
+             
+             // this will return boolean
+             isExist = rs.next();
+           
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return isExist;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -86,8 +148,10 @@ public class SignupPage extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         rSMaterialButtonCircle1 = new necesario.RSMaterialButtonCircle();
         rSMaterialButtonCircle2 = new necesario.RSMaterialButtonCircle();
+        jLabel16 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -115,10 +179,15 @@ public class SignupPage extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(0, 0, 204));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 23)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Signup Page");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 170, 30));
+        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel1.setText("X");
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 0, 30, 50));
 
         jLabel6.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -139,6 +208,11 @@ public class SignupPage extends javax.swing.JFrame {
         txt_username.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txt_username.setPhColor(new java.awt.Color(255, 255, 255));
         txt_username.setPlaceholder("Enter Username");
+        txt_username.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_usernameFocusLost(evt);
+            }
+        });
         txt_username.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_usernameActionPerformed(evt);
@@ -237,6 +311,11 @@ public class SignupPage extends javax.swing.JFrame {
         });
         jPanel2.add(rSMaterialButtonCircle2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 580, 180, 70));
 
+        jLabel16.setFont(new java.awt.Font("SansSerif", 1, 23)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel16.setText("Signup Page");
+        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 170, 30));
+
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 0, 460, 700));
 
         pack();
@@ -264,8 +343,27 @@ public class SignupPage extends javax.swing.JFrame {
     }//GEN-LAST:event_rSMaterialButtonCircle1ActionPerformed
 
     private void rSMaterialButtonCircle2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSMaterialButtonCircle2ActionPerformed
-      insertSignUpDetails();
+      if(validateSignUp() == true){
+          if (checkDuplicateUser()== false){
+               insertSignUpDetails();
+               clearTextField();
+          }else{
+               JOptionPane.showMessageDialog(this, "This username is already exist!");
+          }
+         
+      }
+      
     }//GEN-LAST:event_rSMaterialButtonCircle2ActionPerformed
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void txt_usernameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_usernameFocusLost
+      if( checkDuplicateUser() == true){
+          JOptionPane.showMessageDialog(this, "This username is already exist!");
+      }
+    }//GEN-LAST:event_txt_usernameFocusLost
 
     /**
      * @param args the command line arguments
@@ -310,6 +408,7 @@ public class SignupPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
