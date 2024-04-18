@@ -4,6 +4,12 @@
  */
 package frames;
 
+
+
+import javax.swing.JOptionPane;
+import java.sql.PreparedStatement;
+import java.sql.Connection;
+
 /**
  *
  * @author Admin
@@ -16,7 +22,38 @@ public class SignupPage extends javax.swing.JFrame {
     public SignupPage() {
         initComponents();
     }
-
+    // method to insert user sign up into MySQL
+    public void insertSignUpDetails(){
+        String name = txt_username.getText();
+        String password = txt_password.getText();
+        String email = txt_email.getText();
+        String contact = txt_phone.getText();
+        
+        
+          Connection con = DBConnection.getConnection();
+        try {
+          
+          String sql = "INSERT INTO users(name, password, email, contact) VALUES(?,?,?,?)";
+            PreparedStatement pst = con.prepareStatement(sql);
+            
+            pst.setString(1,name);
+            pst.setString(2,password);
+            pst.setString(3,email);
+            pst.setString(4,contact);
+            
+            int updateRowCount= pst.executeUpdate();
+            if(updateRowCount > 0){
+                JOptionPane.showConfirmDialog(this, "Recorded Inserted Successfully");
+            }
+            else{
+                   JOptionPane.showConfirmDialog(this, "Recorded Inserted Unsuccessfully");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+          
+        }
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -227,7 +264,7 @@ public class SignupPage extends javax.swing.JFrame {
     }//GEN-LAST:event_rSMaterialButtonCircle1ActionPerformed
 
     private void rSMaterialButtonCircle2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSMaterialButtonCircle2ActionPerformed
-        // TODO add your handling code here:
+      insertSignUpDetails();
     }//GEN-LAST:event_rSMaterialButtonCircle2ActionPerformed
 
     /**
