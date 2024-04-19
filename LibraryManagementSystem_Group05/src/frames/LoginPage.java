@@ -50,7 +50,6 @@ public class LoginPage extends javax.swing.JFrame {
         return true;
     
      }
-<<<<<<< HEAD
       
       // verify creds
       public void login(){
@@ -80,9 +79,7 @@ public class LoginPage extends javax.swing.JFrame {
         }
       }
     
-=======
 
->>>>>>> 545859a4cf77e852847b92fc4836154b409968c5
    
     
     
@@ -243,21 +240,23 @@ public class LoginPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void rSMaterialButtonCircle2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSMaterialButtonCircle2ActionPerformed
-      
+      SignupPage sign = new SignupPage();
+      sign.setVisible(true);
+      this.dispose();
 
     }//GEN-LAST:event_rSMaterialButtonCircle2ActionPerformed
 
     private void rSMaterialButtonCircle1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSMaterialButtonCircle1ActionPerformed
         // TODO add your handling code here:
-<<<<<<< HEAD
+
        if( validateLogin()){
            login();
        }
-=======
+
 
         validateLogin();
 
->>>>>>> 545859a4cf77e852847b92fc4836154b409968c5
+
     }//GEN-LAST:event_rSMaterialButtonCircle1ActionPerformed
 
     private void txt_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_passwordActionPerformed
