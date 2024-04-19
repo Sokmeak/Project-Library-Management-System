@@ -50,6 +50,7 @@ public class LoginPage extends javax.swing.JFrame {
         return true;
     
      }
+n
       
       // verify creds
       public void login(){
@@ -78,12 +79,6 @@ public class LoginPage extends javax.swing.JFrame {
             e.printStackTrace();
         }
       }
-    
-
-   
-    
-    
-  
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -252,9 +247,6 @@ public class LoginPage extends javax.swing.JFrame {
        if( validateLogin()){
            login();
        }
-
-
-        validateLogin();
 
 
     }//GEN-LAST:event_rSMaterialButtonCircle1ActionPerformed
