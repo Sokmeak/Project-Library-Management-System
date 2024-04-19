@@ -4,6 +4,9 @@
  */
 package frames;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 
 
@@ -47,7 +50,39 @@ public class LoginPage extends javax.swing.JFrame {
         return true;
     
      }
+<<<<<<< HEAD
+      
+      // verify creds
+      public void login(){
+          String name = txt_username.getText();
+          String pass = txt_password.getText();
+          
+          try {
+            Connection con = DBConnection.getConnection();
+            PreparedStatement pst = con.prepareStatement("select * from users where name = ? and password = ?");
+            pst.setString(1,name);
+            pst.setString(2,pass);
+             ResultSet rs = pst.executeQuery();
+             if(rs.next()){
+                 JOptionPane.showMessageDialog(this, "Login Successfully!");
+                 HomePage home = new HomePage();
+                 home.setVisible(true);
+                 this.dispose();
+             }else{
+                   JOptionPane.showMessageDialog(this, "Incorrect username or password!");
+             }
+             
+             // this will return boolean
+            
+           
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+      }
+    
+=======
 
+>>>>>>> 545859a4cf77e852847b92fc4836154b409968c5
    
     
     
@@ -214,9 +249,15 @@ public class LoginPage extends javax.swing.JFrame {
 
     private void rSMaterialButtonCircle1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSMaterialButtonCircle1ActionPerformed
         // TODO add your handling code here:
+<<<<<<< HEAD
+       if( validateLogin()){
+           login();
+       }
+=======
 
         validateLogin();
 
+>>>>>>> 545859a4cf77e852847b92fc4836154b409968c5
     }//GEN-LAST:event_rSMaterialButtonCircle1ActionPerformed
 
     private void txt_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_passwordActionPerformed

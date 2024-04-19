@@ -55,6 +55,10 @@ public class SignupPage extends javax.swing.JFrame {
             int updateRowCount= pst.executeUpdate();
             if(updateRowCount > 0){
                 JOptionPane.showConfirmDialog(this, "Recorded Inserted Successfully");
+                
+                LoginPage login = new LoginPage();
+                login.setVisible(true);
+                this.dispose();
             }
             else{
                    JOptionPane.showConfirmDialog(this, "Recorded Inserted Unsuccessfully");
