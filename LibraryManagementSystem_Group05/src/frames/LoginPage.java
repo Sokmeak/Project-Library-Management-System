@@ -4,6 +4,8 @@
  */
 package frames;
 
+import javax.swing.JOptionPane;
+
 
 
 /**
@@ -26,6 +28,24 @@ public class LoginPage extends javax.swing.JFrame {
            
        
     }
+    
+      public boolean validateLogin(){
+        String name = txt_username.getText();
+        String pass = txt_password.getText();
+        
+        if(name.equals("")){
+            JOptionPane.showConfirmDialog(this, "Please enter username");
+            return false;
+        }
+        
+         if(pass.equals("")){
+            JOptionPane.showConfirmDialog(this, "Please enter password");
+            return false;
+        }
+        
+        return true;
+    
+     }
     
    
     
@@ -193,6 +213,7 @@ public class LoginPage extends javax.swing.JFrame {
 
     private void rSMaterialButtonCircle1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSMaterialButtonCircle1ActionPerformed
         // TODO add your handling code here:
+        validateLogin();
     }//GEN-LAST:event_rSMaterialButtonCircle1ActionPerformed
 
     private void txt_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_passwordActionPerformed
