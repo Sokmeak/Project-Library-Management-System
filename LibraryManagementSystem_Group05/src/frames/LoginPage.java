@@ -32,6 +32,7 @@ public class LoginPage extends javax.swing.JFrame {
        
     }
     
+
       public boolean validateLogin(){
         String name = txt_username.getText();
         String pass = txt_password.getText();
@@ -49,6 +50,7 @@ public class LoginPage extends javax.swing.JFrame {
         return true;
     
      }
+<<<<<<< HEAD
       
       // verify creds
       public void login(){
@@ -78,6 +80,9 @@ public class LoginPage extends javax.swing.JFrame {
         }
       }
     
+=======
+
+>>>>>>> 545859a4cf77e852847b92fc4836154b409968c5
    
     
     
@@ -244,9 +249,15 @@ public class LoginPage extends javax.swing.JFrame {
 
     private void rSMaterialButtonCircle1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSMaterialButtonCircle1ActionPerformed
         // TODO add your handling code here:
+<<<<<<< HEAD
        if( validateLogin()){
            login();
        }
+=======
+
+        validateLogin();
+
+>>>>>>> 545859a4cf77e852847b92fc4836154b409968c5
     }//GEN-LAST:event_rSMaterialButtonCircle1ActionPerformed
 
     private void txt_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_passwordActionPerformed
