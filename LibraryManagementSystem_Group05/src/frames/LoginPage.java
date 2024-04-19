@@ -50,8 +50,6 @@ public class LoginPage extends javax.swing.JFrame {
         return true;
     
      }
-n
-      
       // verify creds
       public void login(){
           String name = txt_username.getText();
@@ -79,7 +77,7 @@ n
             e.printStackTrace();
         }
       }
-    
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -247,8 +245,6 @@ n
        if( validateLogin()){
            login();
        }
-
-
     }//GEN-LAST:event_rSMaterialButtonCircle1ActionPerformed
 
     private void txt_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_passwordActionPerformed
