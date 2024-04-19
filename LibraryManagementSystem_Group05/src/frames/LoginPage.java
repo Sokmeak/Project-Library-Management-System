@@ -50,7 +50,7 @@ public class LoginPage extends javax.swing.JFrame {
         return true;
     
      }
-
+n
       
       // verify creds
       public void login(){
@@ -79,7 +79,6 @@ public class LoginPage extends javax.swing.JFrame {
             e.printStackTrace();
         }
       }
- 
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -236,7 +235,9 @@ public class LoginPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void rSMaterialButtonCircle2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSMaterialButtonCircle2ActionPerformed
-      
+      SignupPage sign = new SignupPage();
+      sign.setVisible(true);
+      this.dispose();
 
     }//GEN-LAST:event_rSMaterialButtonCircle2ActionPerformed
 
@@ -246,9 +247,6 @@ public class LoginPage extends javax.swing.JFrame {
        if( validateLogin()){
            login();
        }
-
-
-   
 
 
     }//GEN-LAST:event_rSMaterialButtonCircle1ActionPerformed
