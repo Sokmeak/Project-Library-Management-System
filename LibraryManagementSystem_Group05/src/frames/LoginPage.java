@@ -50,7 +50,10 @@ public class LoginPage extends javax.swing.JFrame {
         return true;
     
      }
+<<<<<<< HEAD
       
+=======
+>>>>>>> af2a7590bc46dce4cef49510e0b5dad54aaaf104
       // verify creds
       public void login(){
           String name = txt_username.getText();
@@ -78,13 +81,12 @@ public class LoginPage extends javax.swing.JFrame {
             e.printStackTrace();
         }
       }
+<<<<<<< HEAD
     
 
+=======
+>>>>>>> af2a7590bc46dce4cef49510e0b5dad54aaaf104
    
-    
-    
-  
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -252,11 +254,14 @@ public class LoginPage extends javax.swing.JFrame {
        if( validateLogin()){
            login();
        }
+<<<<<<< HEAD
 
 
         validateLogin();
 
 
+=======
+>>>>>>> af2a7590bc46dce4cef49510e0b5dad54aaaf104
     }//GEN-LAST:event_rSMaterialButtonCircle1ActionPerformed
 
     private void txt_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_passwordActionPerformed

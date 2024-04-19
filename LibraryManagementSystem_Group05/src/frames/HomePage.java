@@ -17,12 +17,18 @@ public class HomePage extends javax.swing.JFrame {
         initComponents();
     }
     
+<<<<<<< HEAD
     public void Test1(){
         System.exit(0);
         System.exit(0);
     }
     
    
+=======
+    public void Test(){
+        System.exit(0);
+    }
+>>>>>>> af2a7590bc46dce4cef49510e0b5dad54aaaf104
 
     /**
      * This method is called from within the constructor to initialize the form.
