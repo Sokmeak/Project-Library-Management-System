@@ -13,6 +13,12 @@ public class Borrow extends javax.swing.JFrame {
     /**
      * Creates new form Borrow
      */
+    
+    
+    public void MyBorrow() {
+       System.out.print("This is a My Borrow file!");
+               
+    }
     public Borrow() {
         initComponents();
     }
