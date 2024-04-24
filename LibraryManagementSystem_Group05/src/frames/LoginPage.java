@@ -50,7 +50,7 @@ public class LoginPage extends javax.swing.JFrame {
         return true;
     
      }
-
+      
       // verify creds
       public void login(){
           String name = txt_username.getText();
@@ -78,8 +78,13 @@ public class LoginPage extends javax.swing.JFrame {
             e.printStackTrace();
         }
       }
+    
 
    
+    
+    
+  
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -248,6 +253,10 @@ public class LoginPage extends javax.swing.JFrame {
            login();
        }
 
+
+        validateLogin();
+
+
     }//GEN-LAST:event_rSMaterialButtonCircle1ActionPerformed
 
     private void txt_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_passwordActionPerformed
@@ -291,7 +300,8 @@ public class LoginPage extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(LoginPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-  
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
