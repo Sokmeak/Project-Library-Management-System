@@ -15,10 +15,7 @@ public class Borrow extends javax.swing.JFrame {
      */
     
     
-    public void MyBorrow() {
-       System.out.print("This is a My Borrow file!");
-               
-    }
+   // this is borrow class
     public Borrow() {
         initComponents();
     }
