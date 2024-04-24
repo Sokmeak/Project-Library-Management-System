@@ -16,8 +16,7 @@ public class HomePage extends javax.swing.JFrame {
     public HomePage() {
         initComponents();
     }
-    
-
+   
     public void Test1(){
         System.exit(0);
         System.exit(0);
